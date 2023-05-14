@@ -17,7 +17,7 @@ function Login(e) {
   const handleGoogleLoginSuccess = (response) => {
     console.log('Google login success:', response);
     navigate('/')
-};
+  };
   function handelSignIn(e) {
     e.preventDefault();
     setCheck(JSON.parse(localStorage.getItem("infoUser")));
@@ -46,7 +46,7 @@ function Login(e) {
   return (
     <div>
       <section className="flex flex-col md:flex-row h-screen items-center mt-5">
-     
+
 
         <div
           className="bg-white w-full md:max-w-md lg:max-w-full md:mx-auto md:mx-0 md:w-1/2 xl:w-1/3 h-screen px-6 lg:px-16 xl:px-12
@@ -97,22 +97,24 @@ function Login(e) {
               {/*onClick={(e)=>handelclick(e)} */}
             </form>
             <div className='mt-4'>
-                            <GoogleLogin
-                                clientId="131293938195-2k0p6ft4jn16fqf2nknb7t8iihfsk1id.apps.googleusercontent.com"
-                                buttonText="Login with Google"
-                                onSuccess={handleGoogleLoginSuccess}
+              <GoogleLogin
+                clientId="131293938195-2k0p6ft4jn16fqf2nknb7t8iihfsk1id.apps.googleusercontent.com"
+                buttonText="Login with Google"
+                onSuccess={handleGoogleLoginSuccess}
 
-                            />
-                            <br /> <br />
 
-<FacebookLogin
-  appId="189266677360423"
-  onSuccess={handleGoogleLoginSuccess}
-  callback={handleGoogleLoginSuccess}
-  cssClass="facebook-button"
-/>
+                
+              />
+              <br /> <br />
 
-                        </div>
+              <FacebookLogin
+                appId="189266677360423"
+                onSuccess={handleGoogleLoginSuccess}
+                callback={handleGoogleLoginSuccess}
+                cssClass="facebook-button"
+              />
+
+            </div>
             <p className="mt-8">
               Need an account?{" "}
               <a className="text-blue-500 hover:text-blue-700 font-semibold">
