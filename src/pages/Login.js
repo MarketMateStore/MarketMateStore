@@ -3,10 +3,12 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaFacebook } from 'react-icons/fa';
 
+// import img from '../images/login.png'
 import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
 
 function Login(e) {
+  // console.log(localStorage.infoUser)
   const [emailInput, setEmailInput] = useState();
   const [passwordInput, setpasswordInput] = useState();
   const [check, setCheck] = useState([]);
@@ -15,7 +17,7 @@ function Login(e) {
   const handleGoogleLoginSuccess = (response) => {
     console.log('Google login success:', response);
     navigate('/')
-  };
+};
   function handelSignIn(e) {
     e.preventDefault();
     setCheck(JSON.parse(localStorage.getItem("infoUser")));
@@ -30,11 +32,21 @@ function Login(e) {
       }
     }
   }
+  // function handelclick(e){
 
+  //   e.preventDefault();
+
+  // }
+
+  // function handelSignIn(){
+  //   setUser(true);
+  //   console.log(user)
+  //   // navigate("/")
+  // }
   return (
     <div>
       <section className="flex flex-col md:flex-row h-screen items-center mt-5">
-
+     
 
         <div
           className="bg-white w-full md:max-w-md lg:max-w-full md:mx-auto md:mx-0 md:w-1/2 xl:w-1/3 h-screen px-6 lg:px-16 xl:px-12
@@ -85,21 +97,23 @@ function Login(e) {
               {/*onClick={(e)=>handelclick(e)} */}
             </form>
             <div className='mt-4'>
-              <GoogleLogin
-                clientId="131293938195-2k0p6ft4jn16fqf2nknb7t8iihfsk1id.apps.googleusercontent.com"
-                buttonText="Login with Google"
-                onSuccess={handleGoogleLoginSuccess}
+                            <GoogleLogin
+                                clientId="131293938195-2k0p6ft4jn16fqf2nknb7t8iihfsk1id.apps.googleusercontent.com"
+                                buttonText="Login with Google"
+                                onSuccess={handleGoogleLoginSuccess}
 
-              />
-              <br /> <br />
-              <FacebookLogin
-                appId="189266677360423"
-                onSuccess={handleGoogleLoginSuccess}
-                callback={handleGoogleLoginSuccess}
-                // icon={<FaFacebook />}
-                cssClass="facebook-button"
-              />
-            </div>
+                            />
+                            <br /> <br />
+
+<FacebookLogin
+  appId="189266677360423"
+  onSuccess={handleGoogleLoginSuccess}
+  callback={handleGoogleLoginSuccess}
+  // icon={<FaFacebook />}
+  cssClass="facebook-button"
+/>
+
+                        </div>
             <p className="mt-8">
               Need an account?{" "}
               <a className="text-blue-500 hover:text-blue-700 font-semibold">
@@ -108,6 +122,13 @@ function Login(e) {
             </p>
           </div>
         </div>
+        {/* <div className="bg-indigo-600 hidden lg:block w-full md:w-1/2 xl:w-2/3 h-screen">
+          <img
+            src={img}
+            alt=""
+            className="w-full h-full object-cover"
+          />
+        </div> */}
       </section>
     </div>
   );
