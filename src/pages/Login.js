@@ -109,7 +109,6 @@ function Login(e) {
   appId="189266677360423"
   onSuccess={handleGoogleLoginSuccess}
   callback={handleGoogleLoginSuccess}
-  // icon={<FaFacebook />}
   cssClass="facebook-button"
 />
 
